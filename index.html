@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="企業 AI 視覺品質營運平台原型">
+  <title>NEXA Quality Operations</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1930'/%3E%3Cpath d='M8 22V10h4l8 8v-8h4v12h-4l-8-8v8z' fill='%232fd4a7'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="collapse.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">N</div><div class="brand-copy"><strong>NEXA</strong><span>QUALITY OPERATIONS</span></div><button class="collapse-button" id="collapseBtn" aria-label="收合導航列" title="收合導航列">‹</button></div>
+      <nav id="nav" aria-label="主要導覽"></nav>
+      <div class="side-foot"><span class="pulse"></span><div><strong>私有雲已連線</strong><small>28 個 Edge 節點正常</small></div></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuBtn" aria-label="開啟選單">☰</button>
+        <div class="breadcrumb" id="breadcrumb">總覽 / 首頁</div>
+        <div class="top-actions">
+          <button class="search-button" id="searchBtn">⌕ <span>搜尋 SN、設備、工站</span><kbd>⌘ K</kbd></button>
+          <button class="icon-button" aria-label="通知">◌<span class="notification-dot"></span></button>
+          <div class="profile"><div class="avatar">林</div><div><strong>林 品質主管</strong><span>集團品質中心</span></div></div>
+        </div>
+      </header>
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <dialog id="searchDialog" class="search-dialog">
+    <form method="dialog"><div class="dialog-search">⌕<input autofocus placeholder="輸入 SN、設備或工站名稱"><button value="cancel">ESC</button></div></form>
+    <div class="quick-results"><p>快速前往</p><button data-goto="trace">產品缺陷追溯 <span>→</span></button><button data-goto="sn-report">SN 追蹤報表 <span>→</span></button><button data-goto="equipment-yield">設備良率分析 <span>→</span></button></div>
+  </dialog>
+  <script src="app.js"></script>
+  <script src="collapse.js"></script>
+</body>
+</html>
