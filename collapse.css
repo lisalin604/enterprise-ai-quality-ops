@@ -1,0 +1,188 @@
+.app-shell {
+  grid-template-columns: 260px minmax(0, 1fr);
+  transition: grid-template-columns 220ms ease;
+}
+
+.sidebar {
+  transition: width 220ms ease, padding 220ms ease;
+}
+
+.brand {
+  position: relative;
+}
+
+.brand-copy {
+  min-width: 0;
+  overflow: hidden;
+  transition: opacity 150ms ease, width 220ms ease;
+}
+
+.collapse-button {
+  position: absolute;
+  right: -9px;
+  top: 26px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 6px;
+  background: #102542;
+  color: #dce7f3;
+  display: grid;
+  place-items: center;
+  font: 600 19px/1 "IBM Plex Sans";
+  cursor: pointer;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  transition: transform 220ms ease, background 150ms ease;
+}
+
+.collapse-button:hover,
+.collapse-button:focus-visible {
+  background: #183454;
+  color: #fff;
+}
+
+.app-shell.nav-collapsed {
+  grid-template-columns: 76px minmax(0, 1fr);
+}
+
+.nav-collapsed .sidebar {
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: visible;
+}
+
+.nav-collapsed .brand {
+  padding: 0 10px;
+  justify-content: center;
+}
+
+.nav-collapsed .brand-copy {
+  width: 0;
+  opacity: 0;
+}
+
+.nav-collapsed .collapse-button {
+  right: -12px;
+  transform: rotate(180deg);
+}
+
+.nav-collapsed .nav-group {
+  margin: 18px 0;
+}
+
+.nav-collapsed .nav-label {
+  height: 1px;
+  padding: 0;
+  margin: 10px 6px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0;
+}
+
+.nav-collapsed .nav-item {
+  position: relative;
+  justify-content: center;
+  width: 48px;
+  height: 42px;
+  padding: 0;
+  margin: 3px auto;
+  font-size: 0;
+}
+
+.nav-collapsed .nav-icon {
+  width: auto;
+  font-size: 16px;
+}
+
+.nav-collapsed .nav-item:hover::after,
+.nav-collapsed .nav-item:focus-visible::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 58px;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 500 13px "Noto Sans TC";
+  white-space: nowrap;
+  background: #102542;
+  color: #fff;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 30;
+}
+
+.nav-collapsed .side-foot {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nav-collapsed .side-foot div {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .app-shell,
+  .app-shell.nav-collapsed {
+    grid-template-columns: 1fr;
+  }
+
+  .collapse-button {
+    display: none;
+  }
+
+  .nav-collapsed .sidebar {
+    padding: 0 14px 18px;
+    overflow: auto;
+  }
+
+  .nav-collapsed .brand {
+    justify-content: flex-start;
+  }
+
+  .nav-collapsed .brand-copy {
+    width: auto;
+    opacity: 1;
+  }
+
+  .nav-collapsed .nav-label {
+    height: auto;
+    padding: 0 12px 8px;
+    margin: 0;
+    background: none;
+    font-size: 11px;
+  }
+
+  .nav-collapsed .nav-item {
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    padding: 10px 12px;
+    margin: 2px 0;
+    font-size: 14px;
+  }
+
+  .nav-collapsed .nav-icon {
+    width: 18px;
+    font-size: inherit;
+  }
+
+  .nav-collapsed .side-foot {
+    justify-content: flex-start;
+    padding: 17px 10px 0;
+  }
+
+  .nav-collapsed .side-foot div {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell,
+  .sidebar,
+  .brand-copy,
+  .collapse-button {
+    transition: none;
+  }
+}
