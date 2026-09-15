@@ -186,3 +186,63 @@
     transition: none;
   }
 }
+
+/* AI decision brief — turns monitoring data into an actionable shift summary. */
+.insight-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(340px, .8fr);
+  margin: 0 0 16px;
+  color: #eaf4ff;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(47, 212, 167, .16), transparent 28%),
+    linear-gradient(125deg, #07172b 0%, #0a223b 58%, #0d2a45 100%);
+  border: 1px solid rgba(83, 150, 194, .25);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(7, 20, 38, .13);
+  overflow: hidden;
+}
+
+.insight-main { padding: 22px 24px; }
+.insight-signal { display: grid; grid-template-columns: 40px 1fr; gap: 14px; }
+.insight-kicker { color: #59e0bb; font: 600 11px "IBM Plex Sans"; letter-spacing: .13em; }
+.insight-signal h2 { margin: 6px 0 7px; color: #fff; font-size: 18px; line-height: 1.45; }
+.insight-signal p { max-width: 800px; margin: 0; color: #aabbd0; font-size: 13px; line-height: 1.75; }
+.signal-orbit { width: 34px; height: 34px; border: 1px solid rgba(50, 221, 176, .42); border-radius: 50%; display: grid; place-items: center; box-shadow: 0 0 0 6px rgba(50, 221, 176, .06); }
+.signal-orbit i { width: 8px; height: 8px; background: #32ddb0; border-radius: 50%; box-shadow: 0 0 12px #32ddb0; }
+.insight-evidence { display: flex; gap: 28px; margin: 18px 0 0 54px; }
+.insight-evidence div { padding-right: 28px; border-right: 1px solid rgba(255,255,255,.12); }
+.insight-evidence div:last-child { border: 0; }
+.insight-evidence span { display: block; color: #7f96ae; font-size: 11px; }
+.insight-evidence strong { display: block; margin-top: 4px; color: #fff; font: 600 18px "IBM Plex Sans"; }
+.insight-actions { display: flex; gap: 8px; margin: 18px 0 0 54px; }
+.insight-actions button { height: 34px; padding: 0 12px; color: #dce9f5; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: 6px; font: 500 12px inherit; cursor: pointer; }
+.insight-actions button:first-child { color: #05271f; background: #32ddb0; border-color: #32ddb0; }
+.insight-actions button:hover { filter: brightness(1.08); }
+.insight-daily { padding: 20px 22px; background: rgba(2, 12, 25, .3); border-left: 1px solid rgba(255,255,255,.1); }
+.insight-daily-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.insight-daily-head span { display: block; color: #aabbd0; font-size: 11px; }
+.insight-daily-head strong { display: block; margin-top: 4px; color: #fff; font: 600 17px "IBM Plex Sans"; }
+.daily-bars { height: 112px; display: flex; align-items: end; justify-content: space-between; gap: 8px; margin-top: 15px; }
+.day-bar { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: end; align-items: center; gap: 5px; }
+.day-bar strong { color: #87a0b9; font: 500 9px "IBM Plex Sans"; }
+.day-bar i { width: min(22px, 70%); min-height: 24px; background: #31516d; border-radius: 3px 3px 1px 1px; }
+.day-bar i.active { background: #32ddb0; box-shadow: 0 0 16px rgba(50,221,176,.3); }
+.day-bar span { color: #778da4; font: 500 9px "IBM Plex Sans"; }
+
+.nav-item:focus-visible,
+.button:focus-visible,
+.insight-actions button:focus-visible { outline: 2px solid #32ddb0; outline-offset: 2px; }
+
+@media (max-width: 1100px) {
+  .insight-panel { grid-template-columns: 1fr; }
+  .insight-daily { border-left: 0; border-top: 1px solid rgba(255,255,255,.1); }
+}
+
+@media (max-width: 620px) {
+  .insight-main, .insight-daily { padding: 18px; }
+  .insight-signal { grid-template-columns: 1fr; }
+  .signal-orbit { display: none; }
+  .insight-evidence, .insight-actions { margin-left: 0; }
+  .insight-evidence { gap: 14px; flex-wrap: wrap; }
+  .insight-evidence div { padding-right: 14px; }
+}
