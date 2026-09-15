@@ -8,8 +8,8 @@
       <div class="provenance-items">
         <span>資料更新時間 <strong>2026/09/15 15:30:00</strong></span>
         <span>資料區間 <strong>2026/09/15 00:00～15:30</strong></span>
-        <span>來源 <strong>SFC／MES／設備端／雲智判／人工複判</strong></span>
-        <span>時區 <strong>UTC+8</strong></span>
+        <span>來源 <strong>SFC／MES／QMS／Edge AI／人工復判</strong></span>
+        <span>時區 <strong>Asia/Shanghai (UTC+8)</strong></span>
       </div><span class="sync-ok">即時同步成功 · 延遲 18 秒</span>
     </div>`;
 
@@ -26,10 +26,10 @@
 
   const definitions = () => `
     <div class="definition-strip" data-enhanced="definitions">
-      <div><span>檢測良率口徑</span><strong>最後一次有效 OK ÷ 有效檢測總數 × 100%</strong></div>
-      <div><span>重複檢測</span><strong>採最後一次有效判定</strong></div>
-      <div><span>人工複判</span><strong>已回寫最終良率</strong></div>
-      <div><span>異常工站門檻</span><strong>良率 &lt; 95.50% 或連續 3 次告警</strong></div>
+      <div><span>最終良率口徑</span><strong>最終 OK 唯一產品數 ÷ 已完成最終判定唯一產品數</strong></div>
+      <div><span>重拍／重測</span><strong>產品數不增加；事件與圖片分開保存</strong></div>
+      <div><span>待復判案件</span><strong>不計入正式良率；另列暫估 AI 初判良率</strong></div>
+      <div><span>異常工站門檻</span><strong>低於 95.5%、連續 3 件 NG 或 Critical NG</strong></div>
     </div>`;
 
   const dashboardModules = () => `
