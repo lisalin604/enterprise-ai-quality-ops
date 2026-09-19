@@ -1,9 +1,9 @@
 const groups=[
- {label:'營運總覽',items:[['dashboard','首頁','⌂']]},
- {label:'品質作業',items:[['review','人工復判中心','◫'],['alerts','異常處置中心','!']]},
- {label:'品質分析',items:[['equipment-yield','設備良率分析','⌁'],['stability','檢測穩定度分析','≈'],['spc','SPC 製程分析','⌗'],['recommend','工程標準推薦','◇'],['root-cause','根因與改善分析','⌬']]},
+ {label:'品質指揮中心',items:[['dashboard','全球品質總覽','⌂'],['quality-intelligence','品質智慧中心','QI']]},
+ {label:'現場檢測',items:[['inspection-studio','AI 檢測工作室','◫'],['review','人工復判中心','◉'],['alerts','異常處置中心','!']]},
+ {label:'品質分析',items:[['equipment-yield','設備良率分析','⌁'],['stability','檢測穩定度分析','≈'],['spc','SPC 製程分析','⌗'],['recommend','工程標準推薦','◇'],['root-cause','AI 根因與改善','⌬']]},
  {label:'品質追溯',items:[['trace','產品缺陷追溯','◎'],['sn-report','SN 追蹤報表','#'],['equipment-report','設備追蹤報表','▣'],['batch','批次隔離與追蹤','⊘']]},
- {label:'專案推進',items:[['development','開發進度','↗'],['rollout','擴散進度','⇢'],['rollout-list','擴散進度表','≡'],['introduction','導入細則匯總表','✓']]},
+ {label:'全球部署',items:[['deployment-fleet','部署艦隊','◌'],['development','開發進度','↗'],['rollout','擴散進度','⇢'],['rollout-list','擴散進度表','≡'],['introduction','導入細則匯總表','✓']]},
  {label:'AI 管理',items:[['samples','樣本與標註管理','▧'],['datasets','資料集管理','◈'],['model-compare','模型驗證與比較','⇆'],['models','模型管理','AI'],['model-release','模型發布紀錄','↥']]},
  {label:'設備維運',items:[['station-health','工站健康監控','●'],['calibration','相機與光源校正','⊙'],['first-article','首件確認','Ⅰ'],['maintenance','維護紀錄','⚙']]},
  {label:'平台治理',items:[['reports','報表中心','▥'],['data-quality','資料品質監控','◆'],['task-center','匯入／匯出任務','⇅'],['integrations','系統介面管理','⌁'],['alarm-rules','警報規則管理','⚑']]},
@@ -17,7 +17,8 @@ const stations=[
  {id:'ST32',name:'ST32-FINAL-VISION',line:'LINE-11 · F4',product:'1065-COVER',count:'7,492',yield:'97.31%',delta:'-0.22%',ng:202,review:31,status:'正常',model:'VIS-2.7.2'}
 ];
 const pageMeta={
- review:['人工復判中心','處理 AI 判定不確定與需要品質確認的產品'],alerts:['異常處置中心','集中管理工站、品質與設備異常'],'root-cause':['根因與改善分析','以人、機、料、法、環、測追蹤改善成效'],
+ 'quality-intelligence':['品質智慧中心','跨廠關聯品質事件、製程條件與改善成效'],'inspection-studio':['AI 檢測工作室','以無程式流程建立影像、檢查區域、模型與判定規則'],'deployment-fleet':['部署艦隊','管理各廠 Edge、相機、模型與配方的一致性'],
+ review:['人工復判中心','處理 AI 判定不確定與需要品質確認的產品'],alerts:['異常處置中心','集中管理工站、品質與設備異常'],'root-cause':['AI 根因與改善','以人、機、料、法、環、測追蹤改善成效'],
  'equipment-yield':['設備良率分析','比較設備、模具與穴位的品質表現'],stability:['檢測穩定度分析','監控影像、模型與現場條件的波動'],spc:['SPC 製程分析','以統計管制辨識製程偏移'],recommend:['工程標準推薦','依生產證據提出可審核的改善建議'],
  trace:['產品缺陷追溯','從缺陷回溯產品、設備、工站與影像'], 'sn-report':['SN 追蹤報表','查詢單件產品的完整生產履歷'], 'equipment-report':['設備追蹤報表','追蹤設備版本、維護與品質結果'],batch:['批次隔離與追蹤','管理受影響產品範圍與放行'],
  development:['開發進度','管理新產品 AI 檢測方案的導入階段'],rollout:['擴散進度','掌握跨廠複製與上線狀態'],'rollout-list':['擴散進度表','逐站追蹤擴散任務與風險'],introduction:['導入細則匯總表','依企業標準查核工站導入準備'],
