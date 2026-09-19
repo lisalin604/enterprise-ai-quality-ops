@@ -24,13 +24,7 @@
       <div class="filter-summary">已套用：深圳一廠、1001 AL Housing、F2／LINE-03｜共 50,873 筆有效檢測</div>
     </div>`;
 
-  const definitions = () => `
-    <div class="definition-strip" data-enhanced="definitions">
-      <div><span>最終良率口徑</span><strong>最終 OK 唯一產品數 ÷ 已完成最終判定唯一產品數</strong></div>
-      <div><span>重拍／重測</span><strong>產品數不增加；事件與圖片分開保存</strong></div>
-      <div><span>待復判案件</span><strong>不計入正式良率；另列暫估 AI 初判良率</strong></div>
-      <div><span>異常工站門檻</span><strong>低於 95.5%、連續 3 件 NG 或 Critical NG</strong></div>
-    </div>`;
+  const definitions = () => '';
 
   const dashboardModules = () => `
     <section class="module-section" data-enhanced="dashboard-modules">
@@ -84,7 +78,7 @@
     const p = page();
     const anchor = root.querySelector('.kpi-grid, .grid-2, .card');
     if (!anchor) return;
-    if (p === 'dashboard') anchor.insertAdjacentHTML('beforebegin', dashboardModules());
+    // 首頁保留 KPI、AI 班次摘要與趨勢；重複的風險卡不再顯示。
     if (p === 'stability' || p === 'equipment-yield' || p === 'spc') root.insertAdjacentHTML('beforeend', stabilityModules());
     if (p === 'trace' || p === 'sn-report' || p === 'equipment-report') anchor.insertAdjacentHTML('beforebegin', traceModules());
     if (['lists','notices','logs','login-logs','workflow'].includes(p)) anchor.insertAdjacentHTML('beforebegin', taskModules());
