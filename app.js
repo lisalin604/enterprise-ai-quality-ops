@@ -1,13 +1,13 @@
 const groups=[
  {label:'品質指揮中心',items:[['dashboard','全球品質總覽','⌂'],['quality-intelligence','品質智慧中心','QI']]},
  {label:'現場檢測',items:[['inspection-studio','AI 檢測工作室','◫'],['review','人工復判中心','◉'],['alerts','異常處置中心','!']]},
- {label:'品質分析',items:[['equipment-yield','設備良率分析','⌁'],['stability','檢測穩定度分析','≈'],['spc','SPC 製程分析','⌗'],['recommend','工程標準推薦','◇'],['root-cause','AI 根因與改善','⌬']]},
- {label:'品質追溯',items:[['trace','產品缺陷追溯','◎'],['sn-report','SN 追蹤報表','#'],['equipment-report','設備追蹤報表','▣'],['batch','批次隔離與追蹤','⊘']]},
- {label:'全球部署',items:[['deployment-fleet','部署艦隊','◌'],['development','開發進度','↗'],['rollout','擴散進度','⇢'],['rollout-list','擴散進度表','≡'],['introduction','導入細則匯總表','✓']]},
- {label:'AI 管理',items:[['samples','樣本與標註管理','▧'],['datasets','資料集管理','◈'],['model-compare','模型驗證與比較','⇆'],['models','模型管理','AI'],['model-release','模型發布紀錄','↥']]},
- {label:'設備維運',items:[['station-health','工站健康監控','●'],['calibration','相機與光源校正','⊙'],['first-article','首件確認','Ⅰ'],['maintenance','維護紀錄','⚙']]},
- {label:'平台治理',items:[['reports','報表中心','▥'],['data-quality','資料品質監控','◆'],['task-center','匯入／匯出任務','⇅'],['integrations','系統介面管理','⌁'],['alarm-rules','警報規則管理','⚑']]},
- {label:'流程與系統管理',items:[['workflow','流程配置','⇄'],['users','用戶管理','♙'],['roles','角色管理','♜'],['menu','選單管理','☷'],['departments','部門管理','▤'],['positions','崗位管理','♟'],['lists','清單定義','☑'],['dictionary','字典管理','⌘'],['notices','通知公告','◉'],['logs','操作日誌','≣'],['login-logs','登入日誌','↳']]}
+ {label:'品質分析',items:[['equipment-yield','設備良率分析','⌁'],['stability','檢測穩定度分析','≈'],['root-cause','AI 根因與改善','⌬']]},
+ {label:'品質追溯',items:[['trace','產品與 SN 追溯','◎'],['batch','批次隔離與追蹤','⊘']]},
+ {label:'全球部署',items:[['deployment-fleet','部署艦隊','◌'],['development','開發進度','↗'],['rollout','擴散管理','⇢']]},
+ {label:'AI 治理',items:[['samples','AI 資料中心','▧'],['models','模型管理','AI'],['model-release','模型發布紀錄','↥']]},
+ {label:'設備維運',items:[['station-health','工站健康監控','●'],['calibration','設備與首件管理','⊙'],['maintenance','維護紀錄','⚙']]},
+ {label:'平台治理',items:[['reports','報表中心','▥'],['data-quality','資料品質監控','◆'],['integrations','系統介面管理','⌁']]},
+ {label:'系統管理',items:[['workflow','流程配置','⇄'],['users','用戶管理','♙'],['roles','角色與權限','♜'],['lists','主資料與字典','☑'],['logs','稽核日誌','≣']]}
 ];
 const stations=[
  {id:'ST10',name:'ST10-VISION-INSPECTION',line:'LINE-03 · F2',product:'1001-AL-HOUSING',count:'12,480',yield:'98.42%',delta:'+0.36%',ng:197,review:28,status:'正常',model:'VIS-2.4.1'},
@@ -20,12 +20,12 @@ const pageMeta={
  'quality-intelligence':['品質智慧中心','跨廠關聯品質事件、製程條件與改善成效'],'inspection-studio':['AI 檢測工作室','以無程式流程建立影像、檢查區域、模型與判定規則'],'deployment-fleet':['部署艦隊','管理各廠 Edge、相機、模型與配方的一致性'],
  review:['人工復判中心','處理 AI 判定不確定與需要品質確認的產品'],alerts:['異常處置中心','集中管理工站、品質與設備異常'],'root-cause':['AI 根因與改善','以人、機、料、法、環、測追蹤改善成效'],
  'equipment-yield':['設備良率分析','比較設備、模具與穴位的品質表現'],stability:['檢測穩定度分析','監控影像、模型與現場條件的波動'],spc:['SPC 製程分析','以統計管制辨識製程偏移'],recommend:['工程標準推薦','依生產證據提出可審核的改善建議'],
- trace:['產品缺陷追溯','從缺陷回溯產品、設備、工站與影像'], 'sn-report':['SN 追蹤報表','查詢單件產品的完整生產履歷'], 'equipment-report':['設備追蹤報表','追蹤設備版本、維護與品質結果'],batch:['批次隔離與追蹤','管理受影響產品範圍與放行'],
+ trace:['產品與 SN 追溯','從產品、SN 或缺陷還原工站、設備、影像與判定'], 'sn-report':['SN 追蹤報表','查詢單件產品的完整生產履歷'], 'equipment-report':['設備追蹤報表','追蹤設備版本、維護與品質結果'],batch:['批次隔離與追蹤','管理受影響產品範圍與放行'],
  development:['開發進度','管理新產品 AI 檢測方案的導入階段'],rollout:['擴散進度','掌握跨廠複製與上線狀態'],'rollout-list':['擴散進度表','逐站追蹤擴散任務與風險'],introduction:['導入細則匯總表','依企業標準查核工站導入準備'],
- samples:['樣本與標註管理','建立可稽核的圖片標註與品質審核流程'],datasets:['資料集管理','管理訓練、驗證、測試集與版本不可變性'],'model-compare':['模型驗證與比較','比較候選與正式模型，檢查 Critical 缺陷'],models:['模型管理','管理模型生命週期、適用範圍與部署狀態'],'model-release':['模型發布紀錄','追蹤分批發布、核准與回退事件'],
- 'station-health':['工站健康監控','監控相機、光源、PLC、Edge 與版本一致性'],calibration:['相機與光源校正','保存校正參數、影像證據與到期狀態'],'first-article':['首件確認','換型後核對工單、配方、模型與品質核准'],maintenance:['維護紀錄','關聯清潔、保養、換刀、換模與良率事件'],
+ samples:['AI 資料中心','管理樣本、標註、資料集與黃金驗證集'],datasets:['資料集管理','管理訓練、驗證、測試集與版本不可變性'],'model-compare':['模型驗證與比較','比較候選與正式模型，檢查 Critical 缺陷'],models:['模型管理','管理模型生命週期、驗證比較與部署狀態'],'model-release':['模型發布紀錄','追蹤分批發布、核准與回退事件'],
+ 'station-health':['工站健康監控','監控相機、光源、PLC、Edge 與版本一致性'],calibration:['設備與首件管理','管理相機光源校正、換型與首件核准'],'first-article':['首件確認','換型後核對工單、配方、模型與品質核准'],maintenance:['維護紀錄','關聯清潔、保養、換刀、換模與良率事件'],
  reports:['報表中心','集中管理品質報表、圖片與排程匯出'],'data-quality':['資料品質監控','追蹤 SN、圖片、映射、回寫與跨系統一致性'],'task-center':['匯入／匯出任務','查看背景任務進度、錯誤明細與稽核結果'],integrations:['系統介面管理','監控 MES、SFC、QMS、ERP 與帳號同步'],'alarm-rules':['警報規則管理','設定門檻、適用範圍、通知與升級策略'],
- workflow:['流程配置','管理核准、復判、發布與異常流程'],users:['用戶管理','管理企業內部帳號與資料範圍'],roles:['角色管理','設定功能與資料存取權限'],menu:['選單管理','配置不同角色可見的系統功能'],departments:['部門管理','維護集團、廠區與部門組織'],positions:['崗位管理','定義工作職責、代理與簽核關係'],lists:['清單定義','維護現場表單、檢核項目與版本'],dictionary:['字典管理','管理全系統共用狀態與代碼'],notices:['通知公告','發布跨廠品質公告與到期提醒'],logs:['操作日誌','追蹤高風險操作與設定異動'],'login-logs':['登入日誌','追蹤帳號登入、裝置與異常存取']
+ workflow:['流程配置','管理核准、復判、發布與異常流程'],users:['用戶管理','管理企業內部帳號與資料範圍'],roles:['角色與權限','設定功能、資料範圍與高風險操作權限'],menu:['選單管理','配置不同角色可見的系統功能'],departments:['部門管理','維護集團、廠區與部門組織'],positions:['崗位管理','定義工作職責、代理與簽核關係'],lists:['主資料與字典','集中管理清單、代碼、組織與共用選項'],dictionary:['字典管理','管理全系統共用狀態與代碼'],notices:['通知公告','發布跨廠品質公告與到期提醒'],logs:['稽核日誌','追蹤改判、發布、匯出、權限與設定異動'],'login-logs':['登入日誌','追蹤帳號登入、裝置與異常存取']
 };
 const content=document.getElementById('content'),nav=document.getElementById('nav'),breadcrumb=document.getElementById('breadcrumb');
 function renderNav(active){nav.innerHTML=groups.map(g=>`<div class="nav-group"><div class="nav-label">${g.label}</div>${g.items.map(i=>`<button class="nav-item ${active===i[0]?'active':''}" data-page="${i[0]}"><span class="nav-icon">${i[2]}</span>${i[1]}</button>`).join('')}</div>`).join('');nav.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));}
