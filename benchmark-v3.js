@@ -18,8 +18,6 @@
   }
 
   function dashboard() {
-    const kpi = root.querySelector('.kpi-grid');
-    if (kpi && !root.querySelector('[data-benchmark="operating-model"]')) kpi.insertAdjacentHTML('beforebegin', operatingModel());
     const station = root.querySelector('.station-table');
     if (station && !station.querySelector('th[data-edge]')) {
       station.querySelector('thead tr').insertAdjacentHTML('beforeend','<th data-edge>Edge 模式</th><th>影像策略</th>');
